@@ -12,12 +12,12 @@
 #include "Product.h"
 #include "ReceiverPreferences.h"
 
-class Sender : ReceiverPreferences {
+class Sender {
 private:
 	ReceiverPreferences _receiverPreferences;
 	std::vector<Product> _sendingBuffer;   //  przechowuje nowy produkt ktory odebral ze spawnera lub ktory juz przerobil i teraz wysle dalej
 public:
-	Sender(int id);
+	//Sender(int id);  /  wydaje mi sie ze tego nie potrzeba , poza tym wychodzil jakis blad i nie wiem o co chodzi xD
 	ReceiverPreferences get_receiverPreferences();
 	void set_receiverPreferences(ReceiverPreferences receiverPreferences);
 	void sendProduct();

@@ -10,6 +10,8 @@
 #include <iostream>
 #include "ProductQueueLIFO.h"
 #include "ProductQueueFIFO.h"
+#include "Net.h"
+#include "Ramp.h"
 
 
 	File::File(std::string fileName) {
@@ -23,6 +25,7 @@
 		    if( file.good() == true )
 		    {
 		    	std::string data,name,temp,queue_type;
+		    	std::vector<Ramp> ramp;
 		    	int id,delivery_interval,processing_time;
 		    	getline(file,temp);
 		    	getline(file,temp);
@@ -50,13 +53,15 @@
 		    			}
 		    		}
 		    		std::cout << id << delivery_interval << std::endl;
-		    		Ramp name(id,delivery_interval);
-		    		net.addRamp(name);
+		    		Ramp r1(id,delivery_interval);
+		    		ramp.push_back(r1);
+		    		net.addRamp(r1);
 		    		getline(file,data);
 
 		    	}
 
 		    	std::vector<ProductQueueLIFO> LIFO;
+		    	std::vector<Worker> worker;
 		    	std::vector<ProductQueueFIFO> FIFO;
 		    	getline(file,temp);
 		    	getline(file,temp);
@@ -91,22 +96,28 @@
 		    		}
 		    		if (queue_type == "LIFO") {
 
-		    			ProductQueue queue* = LIFO[id-1];
-		    			Worker name(id,processing_time,queue);
+
+
+		    			Worker w1(id,processing_time,&LIFO[id-1]);
+		    			worker.push_back(w1);
+		    			net.addWorker(worker[id-1]);
 		    		}
 		    		else {
 
-		    			ProductQueue* queue = FIFO[id-1];
-		    			Worker name(id,processing_time,queue);
+
+		    			Worker w1(id,processing_time,&FIFO[id-1]);
+		    			worker.push_back(w1);
+		    			net.addWorker(worker[id-1]);
 		    		}
 		    		std::cout << id << processing_time << queue_type << std::endl;
 
-		    		net.addWorker(name);
+
 		    		getline(file,data);
 
 		    	}
 
 		    	getline(file,temp);
+		    	std::vector<Storehouse> storehouse;
 		    	getline(file,temp);
 		    	getline(file,data);
 		    	while ( data != "") {
@@ -132,8 +143,9 @@
 
 		    		}
 		    		std::cout << id << std::endl;
-		    		Storehouse name(id);
-		    		net.addStorehouse(name);
+		    		Storehouse s1(id);
+		    		storehouse.push_back(s1);
+		    		net.addStorehouse(s1);
 		    		getline(file,data);
 
 		    	}

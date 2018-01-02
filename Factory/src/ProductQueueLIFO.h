@@ -17,7 +17,7 @@ public:
 	Product pop(); // usun
 	bool empty();
 	bool size();
-	Product[] view();
+	Product view(); // []
 	QueueType getQueueType();
 };
 
