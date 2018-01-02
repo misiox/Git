@@ -13,11 +13,22 @@
     	_processingDuration=processingDuration;
     	_queue=queue;
     }
-	void receiveProduct(Product product);
-	//Product viewDepot(); //  []
-	void work();
-	int get_processingDuration();
-	int get_productProcessingStartTime();
+
+	void Worker::receiveProduct(Product product);
+
+	Product Worker::viewDepot(); //  []
+
+	void Worker::work() {
+
+	}
+	int Worker::get_processingDuration() {
+		return _processingDuration;
+	}
+	int Worker::get_productProcessingStartTime() {
+		return _productProcessingStartTime;
+	}
 	//ReceiverType getReceiverType();
-	int get_id();
+	int Worker::get_id() {
+		return _id;
+	}
 

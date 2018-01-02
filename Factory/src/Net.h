@@ -11,6 +11,7 @@
 #include "Ramp.h"
 #include "Worker.h"
 #include "Storehouse.h"
+#include <vector>
 
 class Net {
 private:
