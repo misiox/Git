@@ -16,7 +16,7 @@
 	void Storehouse::receiverProduct(Product product) {
 
 	}
-	Product Storehouse::view_depot(); // [] oznacza ze funkcja ma zwrocic dostep do calej kolekcji
+	// Product Storehouse::view_depot() { }// [] oznacza ze funkcja ma zwrocic dostep do calej kolekcji
 
 	int Storehouse::get_id() {
 		return _id;

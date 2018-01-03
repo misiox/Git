@@ -15,11 +15,13 @@
 
 #include "File.h"
 #include <string>
+#include <iostream>
 
 int main() {
 
 	Net net;
-	std::string s="D:\Dokumenty\Eclipse\Factory\src\net.txt";
+	std::string s="dane.txt";
+	std::cout << s << std::endl;
 	File file(s);
 	file.readFile(net);
 

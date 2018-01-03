@@ -10,7 +10,7 @@
 
 #include "Net.h"
 
-	Ramp Net::get_ramps(); // []
+	// Ramp Net::get_ramps() {// [] }
 
 	void Net::addRamp(Ramp ramp) {
 		_ramps.push_back(ramp);
@@ -20,13 +20,13 @@
 		bool f=true;
 		int i=0;
 		while (f) {
-			if (_ramps[i]._id==id) f=false;
+			if (_ramps[i].get_id()==id) f=false;
 			else i++;
 		}
-		_ramps.erase(i);
+		_ramps.erase(_ramps.begin() + i -2);
 	}
 
-	Worker Net::get_workers(); // []
+	// Worker Net::get_workers() {// [] }
 
 	void Net::addWorker(Worker worker) {
 		_workers.push_back(worker);
@@ -36,7 +36,7 @@
 
 	}
 
-	Storehouse Net::get_storehouses(); // []
+	 // Storehouse Net::get_storehouses() {// [] }
 
 	void Net::addStorehouse(Storehouse storehouse) {
 		_storehouses.push_back(storehouse);
@@ -46,4 +46,4 @@
 
 	}
 
-	bool Net::isConsistent();
+	// bool Net::isConsistent();

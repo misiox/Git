@@ -14,9 +14,11 @@
     	_queue=queue;
     }
 
-	void Worker::receiveProduct(Product product);
+	void Worker::receiveProduct(Product product) {
 
-	Product Worker::viewDepot(); //  []
+	}
+
+	// Product Worker::viewDepot(); //  []
 
 	void Worker::work() {
 
